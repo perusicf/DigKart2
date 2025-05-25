@@ -3,8 +3,12 @@
 from fastapi import FastAPI
 from routers import patients
 from fastapi.middleware.cors import CORSMiddleware
-
-
+from routers import patients, users, kartoni 
+from routers import dijagnoze
+from routers import terapije
+from routers import users
+from routers import termini
+from routers import evidencija
 
 
 app = FastAPI()
@@ -23,11 +27,10 @@ app.include_router(patients.router, prefix="/patients", tags=["Patients"])
 def root():
     return {"message": "Hello from DIGKAR backend"}
 
-from routers import patients, users, kartoni  # add kartoni
 
 app.include_router(kartoni.router, prefix="/kartoni", tags=["Kartoni"])
 
-from routers import dijagnoze
+
 app.include_router(dijagnoze.router, prefix="/dijagnoze", tags=["Dijagnoze"])
 
 from routers import terapije
@@ -39,15 +42,15 @@ from routers import users
 
 app.include_router(users.router, prefix="/users", tags=["Users"])
 
-from routers import termini
+
 app.include_router(termini.router, prefix="/termini", tags=["Termini"])
 
-from routers import evidencija
+
 app.include_router(evidencija.router, prefix="/evidencija", tags=["Evidencija pristupa"])
 
-from routers import users
+
 app.include_router(users.router, prefix="/korisnici", tags=["Korisnici"])
 
-from routers import kartoni
+
 
 app.include_router(kartoni.router, prefix="/kartoni", tags=["Kartoni"])

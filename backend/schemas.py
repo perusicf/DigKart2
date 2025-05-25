@@ -3,7 +3,7 @@ from typing import Optional, List
 from datetime import date, datetime
 
 
-# ───── PACIJENT ─────
+
 class PacijentBase(BaseModel):
     oib: str = Field(..., min_length=11, max_length=11)
     ime: str
@@ -22,7 +22,7 @@ class PacijentOut(PacijentBase):
         orm_mode = True
 
 
-# ───── KARTON ─────
+
 class KartonBase(BaseModel):
     datum_otvaranja: Optional[date] = None
     status_aktivnosti: str
@@ -47,7 +47,7 @@ class KorisnikBase(BaseModel):
     uloga: str
 
 class KorisnikCreate(KorisnikBase):
-    lozinka: str  # plain password to be hashed
+    lozinka: str  
 
 class KorisnikUpdate(BaseModel):
     ime: str | None = None
@@ -82,7 +82,7 @@ class DijagnozaOut(DijagnozaBase):
         orm_mode = True
 
 
-# ───── TERAPIJA ─────
+
 class TerapijaBase(BaseModel):
     opis_terapije: str
 
@@ -126,11 +126,11 @@ class DijagnozaUpdate(BaseModel):
 
 
     class Config:
-        from_attributes = True  # Pydantic v2
+        from_attributes = True  
 
 
 
-# ───── TERMIN ─────
+
 class TerminBase(BaseModel):
     datum_vrijeme: datetime
     status_termina: str

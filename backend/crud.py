@@ -6,7 +6,7 @@ import models
 import schemas
 import models
 import schemas
-from models import Korisnik  # ← this is what you are missing
+from models import Korisnik  
 
 
 
